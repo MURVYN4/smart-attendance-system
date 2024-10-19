@@ -6,9 +6,10 @@
     <title>NFC Access Example</title>
 </head>
 <body>
-    <h2>NFC Access Example</h2>
+  
+    <h2> SCAN </h2>
     <button id="scanButton">Scan NFC Tag</button>
-    <button id="writeButton">QR code scanner</button>
+    <button id="QrButton">QR code scanner</button>
     <pre id="log"></pre>
 
     <script>
@@ -29,26 +30,9 @@
                 try {
                     await ndef.scan();
                     consoleLog("Scan started successfully!");
-
-                    ndef.onreading = event => {
-                        const decoder = new TextDecoder();
-                        for (const record of event.message.records) {
-                            consoleLog(`Record type: ${record.recordType}`);
-                            consoleLog(`MIME type: ${record.mediaType}`);
-                            consoleLog(`Data: ${decoder.decode(record.data)}`);
-                        }
-                    };
-                } catch (error) {
-                    consoleLog(`Error: ${error}`);
-                }
-            };
-
-            // Write to NFC Tag
-            <a ndef = "https://murvyn4.github.io/Qr-scanner/" >
-                </a>
-                }
-            };
-                }
+        //QR CODE SCANNER
+                    document.getElementById('QrButton').onclick = async () => {
+                   href= "https://murvyn4.github.io/Qr-scanner/" 
     </script>
 </body>
 </html>
