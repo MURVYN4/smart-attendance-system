@@ -8,7 +8,7 @@
 <body>
     <h2>NFC Access Example</h2>
     <button id="scanButton">Scan NFC Tag</button>
-    <button id="writeButton">Write to NFC Tag</button>
+    <button id="writeButton">QR code scanner</button>
     <pre id="log"></pre>
 
     <script>
@@ -44,18 +44,10 @@
             };
 
             // Write to NFC Tag
-            document.getElementById('writeButton').onclick = async (https://murvyn4.github.io/Qr-scanner/) => {
-                const ndef = new NDEFReader();
-                try {
-                    await ndef.write({ records: [{ recordType: "text", data: "Hello, NFC!" }] });
-                    consoleLog("NDEF message written!");
-                } catch (error) {
-                    consoleLog(`Error: ${error}`);
+            <a href="https://murvyn4.github.io/Qr-scanner/">
                 }
             };
-        } else {
-            consoleLog("Web NFC is not supported on this device.");
-        }
+                }
     </script>
 </body>
 </html>
