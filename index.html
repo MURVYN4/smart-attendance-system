@@ -3,36 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFC Access Example</title>
-</head>
-<body>
-  
-    <h2> SCAN </h2>
-    <button id="scanButton">Scan NFC Tag</button>
-    <button id="QrButton">QR code scanner</button>
-    <pre id="log"></pre>
-
+    <title>NFC and Website Opener</title>
     <script>
-        const logElement = document.getElementById('log');
-
-        // Function to log messages
-        function consoleLog(message) {
-            logElement.textContent += message + '\n';
+        // Function to enable NFC
+        async function enableNFC() {
+            if ('NDEFReader' in window) {
+                try {
+                    const ndef = new NDEFReader();
+                    await ndef.scan();
+                    console.log("NFC reader started successfully.");
+                    alert("NFC enabled successfully!");
+                } catch (error) {
+                    console.error("Error enabling NFC: ", error);
+                    alert("NFC could not be enabled.");
+                }
+            } else {
+                alert("NFC is not supported on this device.");
+            }
         }
 
-        // Check if NFC is supported
-        if ('NDEFReader' in window) {
-            consoleLog("NFC is supported!");
-
-            // Scan NFC Tag
-            document.getElementById('scanButton').onclick = async () => {
-                const ndef = new NDEFReader();
-                try {
-                    await ndef.scan();
-                    consoleLog("Scan started successfully!");
-        //QR CODE SCANNER
-                    document.getElementById('QrButton').onclick = "https://murvyn4.github.io/Qr-scanner/" () => {
-                    
+        // Function to open a website
+        function openWebsite() {
+            window.open("https://murvyn4.github.io/Qr-scanner/", "_blank");
+        }
     </script>
+</head>
+<body>
+    <h1>NFC and Website Opener</h1>
+    <button onclick="enableNFC()">Enable NFC</button>
+    <button onclick="openWebsite()">Open Website</button>
 </body>
 </html>
